@@ -41,7 +41,7 @@ const Hero = () => {
           <input
             type="text"
             className="hero-search-input"
-            placeholder="Enter address, city, or ZIP code..."
+            placeholder="Enter address or city..."
             value={searchQuery} // <-- Bind value to state
             onChange={handleInputChange} // <-- Set onChange handler
           />

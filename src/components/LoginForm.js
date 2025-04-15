@@ -88,11 +88,6 @@ const LoginForm = ({ onSwitchToSignup, onSuccess }) => {
       >
         {isLoading ? 'Logging in...' : 'Login'}
       </button>
-      <div className="auth-links">
-        <button type="button" className="link-button">
-          Forgot password?
-        </button>
-      </div>
       <p className="switch-form-text">
         Don't have an account?{' '}
         <button 
