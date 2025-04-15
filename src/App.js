@@ -9,12 +9,14 @@ import LoginForm from './components/LoginForm';
 import SignupForm from './components/SignupForm';
 import ChatbotWidget from './components/Chatbot/ChatbotWidget';
 import MortgageCalculator from './components/MortgageCalculator/MortgageCalculator';
+import ProtectedRoute from './components/ProtectedRoute'; // <-- Import ProtectedRoute
 import HomePage from './pages/HomePage';
 import PropertiesPage from './pages/PropertiesPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import PropertyDetailsPage from './pages/PropertyDetailsPage';
 import FavoritesPage from './pages/FavoritesPage'; // Make sure this is imported
+import LoginPage from './pages/LoginPage'; // Import the new LoginPage
 import NotFoundPage from './pages/NotFoundPage';
 import './App.css';
 
@@ -200,13 +202,29 @@ function App() {
 
       <main className="main-content">
         <Routes>
-           {/* Pass comparison state/handlers to pages */}
+           {/* Public Routes */}
            <Route path="/" element={<HomePage properties={properties} favorites={favorites} onToggleFavorite={toggleFavorite} comparisonList={comparisonList} onToggleComparison={toggleComparison} />} />
            <Route path="/properties" element={<PropertiesPage properties={properties} favorites={favorites} onToggleFavorite={toggleFavorite} comparisonList={comparisonList} onToggleComparison={toggleComparison} onOpenCompare={handleOpenComparison} />} />
            <Route path="/about" element={<AboutPage />} />
            <Route path="/contact" element={<ContactPage />} />
            <Route path="/property/:propertyId" element={<PropertyDetailsPage properties={properties} favorites={favorites} onToggleFavorite={toggleFavorite} /* Comparison not needed here? */ />} />
-           <Route path="/favorites" element={<FavoritesPage properties={properties} favorites={favorites} onToggleFavorite={toggleFavorite} comparisonList={comparisonList} onToggleComparison={toggleComparison} onOpenCompare={handleOpenComparison} />} />
+           <Route path="/login" element={<LoginPage />} />
+           
+           {/* Protected Routes */}
+           <Route path="/favorites" element={
+             <ProtectedRoute>
+               <FavoritesPage 
+                 properties={properties} 
+                 favorites={favorites} 
+                 onToggleFavorite={toggleFavorite} 
+                 comparisonList={comparisonList} 
+                 onToggleComparison={toggleComparison} 
+                 onOpenCompare={handleOpenComparison} 
+               />
+             </ProtectedRoute>
+           } />
+           
+           {/* Catch-all Route */}
            <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
@@ -215,9 +233,17 @@ function App() {
 
       {/* --- Modals --- */}
       {/* ... other modals ... */}
-       <Modal show={showLoginModal} onClose={handleCloseModals} title="Login"> <LoginForm onSwitchToSignup={handleSwitchToSignup} /> </Modal>
-       <Modal show={showSignupModal} onClose={handleCloseModals} title="Sign Up"> <SignupForm onSwitchToLogin={handleSwitchToLogin}/> </Modal>
-       <Modal show={showCalcModal} onClose={handleCloseModals} title="Mortgage Calculator"> <MortgageCalculator /> </Modal>
+       <Modal show={showLoginModal} onClose={handleCloseModals} title="Login"> 
+         <LoginForm onSwitchToSignup={handleSwitchToSignup} onSuccess={handleCloseModals} /> 
+       </Modal>
+       
+       <Modal show={showSignupModal} onClose={handleCloseModals} title="Sign Up"> 
+         <SignupForm onSwitchToLogin={handleSwitchToLogin} onSuccess={handleCloseModals} /> 
+       </Modal>
+       
+       <Modal show={showCalcModal} onClose={handleCloseModals} title="Mortgage Calculator"> 
+         <MortgageCalculator /> 
+       </Modal>
 
       {/* --- Comparison Modal --- */}
       <Modal show={showComparisonModal} onClose={handleCloseModals} title="Compare Properties">

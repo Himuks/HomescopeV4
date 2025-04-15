@@ -67,6 +67,20 @@
     gap: 10px; /* Use gap for spacing */
   }
   
+  /* User info styles */
+  .user-info {
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+  }
+  
+  .user-name {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    padding: 0 8px;
+  }
+  
   /* Uses global .btn styles now from index.css */
   /*.navbar-actions button {
     margin-left: 10px;
@@ -93,5 +107,8 @@
       }
       .navbar-logo {
           font-size: 1.5rem;
+      }
+      .user-name {
+          display: none; /* Hide username on mobile */
       }
   }
