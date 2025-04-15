@@ -1,0 +1,76 @@
+/* src/components/Modal/Modal.css */
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Keep dark overlay */
+    /* Or use variable: background-color: var(--shadow-color); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    animation: fadeIn 0.3s forwards;
+  }
+  
+  .modal-content {
+    background-color: var(--background-secondary); /* Variable */
+    padding: 25px 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px var(--shadow-color); /* Use variable */
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    transform: translateY(-30px);
+    animation: slideDown 0.4s ease-out forwards;
+    max-height: 85vh; /* Adjusted max height */
+    overflow-y: auto;
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-primary); /* Variable */
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .modal-title {
+    margin: 0;
+    font-size: 1.4rem;
+    color: var(--text-primary); /* Variable */
+    font-weight: 600;
+  }
+  
+  .modal-close-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-secondary); /* Variable */
+    padding: 5px;
+    line-height: 1;
+  }
+  .modal-close-button:hover {
+    color: var(--text-primary); /* Variable */
+  }
+  
+  .modal-body {
+    line-height: 1.6;
+    color: var(--text-primary); /* Use primary text color */
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }

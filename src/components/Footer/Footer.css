@@ -1,0 +1,77 @@
+/* src/components/Footer/Footer.css */
+
+.footer {
+    background-color: var(--background-accent);
+    color: var(--text-secondary); /* Use secondary text color */
+    padding: 40px 20px 20px 20px;
+    border-top: 1px solid var(--border-primary);
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1300px;
+    margin: 0 auto 20px auto;
+    gap: 20px;
+  }
+  
+  .footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+  }
+  
+  .footer-section h4 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: var(--text-primary); /* Use primary text color */
+  }
+  
+  .footer-section p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+  
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-section ul li {
+    margin-bottom: 8px;
+  }
+  
+  .footer-section ul li a,
+  .footer-link-button { /* Apply link styles to button too */
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 0.95rem; /* Match paragraph size */
+  }
+  
+  .footer-section ul li a:hover,
+  .footer-link-button:hover {
+    color: var(--link-hover-color);
+    text-decoration: underline;
+  }
+  
+  /* Specific style for the footer button to look like a link */
+  .footer-link-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      text-align: left;
+      font-family: inherit;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-primary);
+    font-size: 0.9rem;
+    color: var(--text-secondary); /* Secondary text */
+  }

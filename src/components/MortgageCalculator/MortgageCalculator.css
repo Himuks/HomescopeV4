@@ -1,0 +1,95 @@
+/* src/components/MortgageCalculator/MortgageCalculator.css */
+
+.mortgage-calculator {
+    padding: 10px;
+  }
+  
+  .calculator-inputs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .calc-form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: var(--text-secondary); /* Variable */
+    font-size: 0.9rem;
+  }
+  
+  .calc-form-group input[type="number"],
+  .calc-form-group select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border-secondary); /* Variable */
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    background-color: var(--background-primary); /* Variable */
+    color: var(--text-primary); /* Variable */
+  }
+  
+  .calc-form-group input:focus,
+  .calc-form-group select:focus {
+    border-color: var(--text-accent); /* Variable */
+    outline: none;
+    box-shadow: 0 0 0 2px var(--shadow-color); /* Variable */
+  }
+  
+  .calculator-results {
+    background-color: var(--background-accent); /* Variable */
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border-primary); /* Variable */
+  }
+  
+  .calculator-results h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: var(--text-primary); /* Variable */
+    text-align: center;
+    border-bottom: 1px solid var(--border-primary); /* Variable */
+    padding-bottom: 10px;
+  }
+  
+  .result-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: var(--text-secondary); /* Variable */
+  }
+  
+  .result-item strong {
+    font-weight: 600;
+    color: var(--text-primary); /* Variable */
+  }
+  
+  .calculator-results hr {
+      border: none;
+      border-top: 1px dashed var(--border-secondary); /* Variable */
+      margin: 15px 0;
+  }
+  
+  .monthly-payment {
+    margin-top: 15px;
+    font-size: 1.1rem;
+    color: var(--text-primary); /* Use primary text for label */
+  }
+  
+  .payment-amount {
+      font-size: 1.5rem;
+      color: var(--text-accent); /* Variable */
+      font-weight: bold;
+  }
+  
+  .disclaimer {
+      font-size: 0.8rem;
+      color: var(--text-secondary); /* Variable */
+      text-align: center;
+      margin-top: 15px;
+      font-style: italic;
+  }

@@ -1,0 +1,142 @@
+/* src/index.css */
+
+/* --- Light Theme Variables (Default) --- */
+:root {
+  --background-primary: #f4f7f6; /* Slightly off-white page background */
+  --background-secondary: #ffffff; /* Card/Modal/Navbar backgrounds */
+  --background-accent: #f8f9fa; /* Footer, Controls background, hover light */
+  --text-primary: #333; /* Main text */
+  --text-secondary: #555; /* Subdued text */
+  --text-accent: #007bff; /* Links, prices, highlights */
+  --text-on-accent: #ffffff; /* Text on primary buttons */
+  --border-primary: #e0e0e0; /* Main borders */
+  --border-secondary: #ccc; /* Input borders */
+  --shadow-color: rgba(0, 0, 0, 0.1); /* Box shadows */
+  --link-color: #007bff;
+  --link-hover-color: #0056b3;
+  --icon-color: #007bff;
+  --button-primary-bg: #007bff;
+  --button-primary-text: #ffffff;
+  --button-primary-hover-bg: #0056b3;
+  --button-secondary-bg: #f8f9fa;
+  --button-secondary-text: #333;
+  --button-secondary-hover-bg: #e2e6ea;
+  --button-secondary-border: #ccc;
+  --hero-overlay-color: rgba(0, 0, 0, 0.5); /* Hero overlay */
+  --danger-color: #dc3545; /* For hearts, errors */
+  --danger-hover-color: #c82333;
+  --danger-text-color: #ffffff;
+}
+
+/* --- Dark Theme Variable Overrides --- */
+[data-theme='dark'] {
+  --background-primary: #121212; /* Very dark background */
+  --background-secondary: #1e1e1e; /* Slightly lighter dark for cards/modals */
+  --background-accent: #2a2a2a; /* Dark accent */
+  --text-primary: #e0e0e0; /* Light grey text */
+  --text-secondary: #a0a0a0; /* Medium grey text */
+  --text-accent: #52a9ff; /* Lighter blue for accents */
+  --text-on-accent: #ffffff; /* Keep white or adjust if bg changes drastically */
+  --border-primary: #3a3a3a; /* Darker borders */
+  --border-secondary: #555; /* Darker input borders */
+  --shadow-color: rgba(255, 255, 255, 0.08); /* Lighter shadow for contrast */
+  --link-color: #52a9ff;
+  --link-hover-color: #74c0fc;
+  --icon-color: #52a9ff;
+  --button-primary-bg: #52a9ff;
+  --button-primary-text: #121212; /* Dark text on light blue */
+  --button-primary-hover-bg: #74c0fc;
+  --button-secondary-bg: #3a3a3a; /* Dark secondary button */
+  --button-secondary-text: #e0e0e0; /* Light text */
+  --button-secondary-hover-bg: #4a4a4a;
+  --button-secondary-border: #555;
+  --hero-overlay-color: rgba(0, 0, 0, 0.6); /* Slightly darker overlay? */
+  --danger-color: #ff6b6b; /* Brighter red for dark mode */
+  --danger-hover-color: #ff8787;
+  --danger-text-color: #ffffff;
+}
+
+/* Apply base background and text color to body */
+body {
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  line-height: 1.6; /* Add default line-height */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* Optional: Apply smooth transitions to all elements */
+/* Be cautious with '*' as it can impact performance slightly */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* Add transitions carefully - maybe scope them more */
+    /* transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease; */
+}
+*:focus {
+     /* Ensure focus outline is visible in both themes */
+     outline-offset: 2px;
+     outline: 2px solid var(--text-accent);
+}
+
+a { /* Basic link styling */
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+a:hover {
+    color: var(--link-hover-color);
+    text-decoration: underline;
+}
+
+img { /* Basic responsive images */
+    max-width: 100%;
+    height: auto;
+    display: block; /* Remove extra space below image */
+}
+
+/* --- Global Button Styles (if not already defined elsewhere) --- */
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, opacity 0.3s ease, color 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+}
+
+.btn-primary {
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-text);
+}
+.btn-primary:hover {
+  background-color: var(--button-primary-hover-bg);
+}
+
+.btn-secondary {
+  background-color: var(--button-secondary-bg);
+  color: var(--button-secondary-text);
+  border: 1px solid var(--button-secondary-border);
+}
+.btn-secondary:hover {
+  background-color: var(--button-secondary-hover-bg);
+}
+
+.link-button { /* Style for button elements that should look like links */
+    background: none;
+    border: none;
+    color: var(--link-color);
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0;
+    font-size: inherit;
+}
+.link-button:hover {
+    color: var(--link-hover-color);
+}

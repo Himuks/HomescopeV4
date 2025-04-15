@@ -1,0 +1,260 @@
+/* src/pages/PropertiesPage.css */
+
+.properties-page-container {
+    padding-top: 20px; /* Add space below Navbar */
+}
+
+/* Shared Page Title Style */
+.page-title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.2rem;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* Shared Page Subtitle Style (for search results) */
+.page-subtitle {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: normal;
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+}
+.page-subtitle em { /* Style for the search term itself */
+    color: var(--text-accent);
+    font-style: normal; /* Override default italic if needed */
+}
+
+/* New Filter Styles */
+.filter-section {
+    margin-bottom: 30px;
+}
+
+.filter-toggle-btn {
+    background-color: var(--background-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-secondary);
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin: 0 auto 15px;
+    display: block;
+}
+
+.filter-toggle-btn:hover {
+    background-color: var(--background-accent);
+}
+
+.filters-container {
+    background-color: #1e1f23;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.filters-title {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-secondary);
+}
+
+.filter-group {
+    margin-bottom: 20px;
+}
+
+.filter-group h4 {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 0.95rem;
+    margin-right: 15px;
+}
+
+.checkbox-label input[type="checkbox"] {
+    margin-right: 6px;
+    cursor: pointer;
+    accent-color: var(--text-accent);
+}
+
+.price-range-inputs {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.price-input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.price-input-group input {
+    background-color: #2c2d33;
+    border: 1px solid var(--border-secondary);
+    padding: 8px 12px;
+    border-radius: 4px;
+    color: var(--text-primary);
+    width: 100px;
+}
+
+.price-input-group span {
+    color: var(--text-secondary);
+}
+
+.apply-btn {
+    background-color: #3f51b5;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.apply-btn:hover {
+    background-color: #303f9f;
+}
+
+.price-range-presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.preset-btn {
+    background-color: #2c2d33;
+    color: var(--text-primary);
+    border: 1px solid var(--border-secondary);
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.preset-btn:hover {
+    background-color: #3a3b42;
+}
+
+.preset-btn.active {
+    background-color: #3f51b5;
+    color: white;
+    border-color: #3f51b5;
+}
+
+/* Existing Styles */
+.properties-controls {
+  display: flex;
+  justify-content: center; /* Center controls horizontally */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  gap: 15px 25px; /* Vertical and horizontal gap */
+  padding: 15px 20px; /* Padding around controls */
+  margin-bottom: 30px; /* Space below controls */
+  background-color: var(--background-accent); /* Use variable */
+  border-radius: 8px;
+  border: 1px solid var(--border-primary); /* Use variable */
+  align-items: center; /* Align items vertically */
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between label and select */
+}
+
+.control-group label {
+  font-weight: bold;
+  color: var(--text-secondary); /* Use variable */
+  font-size: 0.9rem;
+  white-space: nowrap; /* Prevent label wrapping */
+}
+
+.control-group select {
+  padding: 8px 12px;
+  border: 1px solid var(--border-secondary); /* Use variable */
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  background-color: var(--background-secondary); /* Use variable */
+  color: var(--text-primary); /* Use variable */
+  min-width: 150px; /* Give dropdowns some minimum width */
+}
+.control-group select:focus {
+   border-color: var(--text-accent); /* Use variable */
+   outline: none;
+}
+
+.compare-button-group {
+    margin-left: auto; /* Push compare button to the right */
+    /* This works if parent is flex and items before don't take all space */
+    /* Alternatively, use justify-content: space-between on .properties-controls */
+    /* and wrap filter/sort controls in their own div */
+}
+
+.compare-button-group .btn { /* Target the button within the group */
+    padding: 8px 15px; /* Slightly smaller padding */
+    font-size: 0.9rem;
+}
+
+.compare-button-group .btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    background-color: var(--button-secondary-bg); /* Ensure disabled style is visible */
+    color: var(--text-secondary);
+    border-color: var(--border-secondary);
+}
+
+/* Responsive adjustments for controls */
+@media (max-width: 768px) {
+    .properties-controls {
+        justify-content: space-around; /* Better spacing on smaller screens */
+        gap: 15px; /* Consistent gap */
+    }
+    .compare-button-group {
+        margin-left: 0; /* Don't push right */
+        width: 100%; /* Make compare button full width */
+        display: flex; /* Allow centering button inside */
+        justify-content: center;
+        margin-top: 10px; /* Add space above */
+    }
+    .compare-button-group .btn {
+        width: auto; /* Reset width */
+        min-width: 150px; /* Give it some width */
+    }
+    
+    .filter-group {
+        width: 100%;
+    }
+    
+    .price-input-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .price-range-presets {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .checkbox-group {
+        flex-direction: column;
+    }
+}

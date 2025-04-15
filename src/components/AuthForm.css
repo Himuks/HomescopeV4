@@ -1,0 +1,49 @@
+/* src/components/AuthForm.css */
+
+.auth-form .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .auth-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--text-secondary); /* Variable */
+    font-size: 0.9rem;
+  }
+  
+  .auth-form input[type="text"],
+  .auth-form input[type="email"],
+  .auth-form input[type="password"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border-secondary); /* Variable */
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    background-color: var(--background-primary); /* Use primary bg for contrast */
+    color: var(--text-primary); /* Variable */
+  }
+  
+  .auth-form input:focus {
+      border-color: var(--text-accent); /* Variable */
+      outline: none;
+      box-shadow: 0 0 0 2px var(--shadow-color); /* Adjust focus shadow? */
+  }
+  
+  .btn-block {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    /* Uses global .btn styles now */
+  }
+  
+  .switch-form-text {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: var(--text-secondary); /* Variable */
+  }
+  
+  /* Uses global .link-button style now */
+  /*.link-button { ... } */

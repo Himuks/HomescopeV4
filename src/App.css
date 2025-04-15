@@ -1,0 +1,32 @@
+/* src/App.css */
+
+/* --- Global App Layout --- */
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure footer stays at bottom */
+  background-color: var(--background-primary); /* Use variable */
+}
+
+.main-content {
+  flex: 1; /* Allows this section to grow and push footer down */
+  /* Padding can be handled by page containers if needed */
+  /* padding: 20px; */
+  max-width: 1300px; /* Consistent max width */
+  margin: 0 auto; /* Center content area */
+  width: 100%;
+  padding-left: 15px; /* Add horizontal padding for smaller screens */
+  padding-right: 15px;
+}
+
+/* Ensure text color is inherited correctly */
+h1, h2, h3, h4, h5, h6, p, li, span, div {
+  color: inherit; /* Inherit from body or parent */
+}
+
+/* You might not need button styles here if defined in index.css */
+/*
+.btn { ... }
+.btn-primary { ... }
+.btn-secondary { ... }
+*/

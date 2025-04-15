@@ -1,0 +1,30 @@
+/* src/components/ThemeToggleButton.css */
+.theme-toggle-button {
+    background: none;
+    border: none;
+    color: var(--text-secondary); /* Use theme variable */
+    cursor: pointer;
+    font-size: 1.4rem; /* Adjust icon size */
+    padding: 5px; /* Reduced padding */
+    border-radius: 50%; /* Make it round */
+    width: 36px; /* Explicit size */
+    height: 36px;
+    display: flex;
+    justify-content: center; /* Center icon */
+    align-items: center; /* Center icon */
+    transition: color 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .theme-toggle-button:hover {
+    color: var(--text-primary); /* Use theme variable */
+    background-color: var(--background-accent); /* Subtle background on hover */
+  }
+  
+  /* Focus will use the global *:focus style from index.css */
+  /* Or add explicit focus if preferred: */
+  /*
+  .theme-toggle-button:focus {
+     outline: 2px solid var(--text-accent);
+     outline-offset: 2px;
+  }
+  */

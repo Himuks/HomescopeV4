@@ -1,0 +1,211 @@
+/* src/components/PropertyCard/PropertyCard.css */
+
+.property-card {
+    background-color: var(--background-secondary); /* Variable */
+    border-radius: 8px;
+    overflow: hidden; /* Ensures image corners are rounded */
+    box-shadow: 0 4px 8px var(--shadow-color); /* Variable */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Needed for absolute positioning of buttons/checkbox */
+  }
+  
+  .property-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 16px var(--shadow-color); /* Variable */
+  }
+  
+  .property-card-image {
+    width: 100%;
+    height: 200px; /* Fixed height for the image */
+    object-fit: cover; /* Cover the area, cropping if needed */
+    display: block;
+    background-color: var(--background-accent); /* Placeholder bg color */
+  }
+  
+  .property-card-content {
+    padding: 15px;
+  }
+  
+  .property-card-price {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--text-accent); /* Variable */
+    margin-bottom: 8px;
+  }
+  
+  .property-card-address {
+    font-size: 0.95rem;
+    color: var(--text-secondary); /* Variable */
+    margin-bottom: 12px;
+    min-height: 40px; /* Ensure consistent height */
+  }
+  
+  .property-card-details {
+    font-size: 0.9rem;
+    color: var(--text-secondary); /* Variable */
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping if needed */
+    gap: 5px; /* Space between detail items */
+    border-top: 1px solid var(--border-primary); /* Variable */
+    padding-top: 10px;
+    margin-top: 10px;
+  }
+  
+  .property-card-details span {
+    margin-right: 5px; /* Add space after each item */
+  }
+  
+  /* New property card extra details */
+  .property-card-extra-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  
+  /* Badge styling for property attributes */
+  .location-badge,
+  .furnished-badge,
+  .tenant-badge {
+    font-size: 0.8rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    font-weight: 500;
+  }
+  
+  .location-badge {
+    background-color: #3f51b5;
+    color: white;
+  }
+  
+  .furnished-badge {
+    background-color: #2c2d33;
+    color: white;
+  }
+  
+  .furnished-badge.furnished {
+    background-color: #43a047;
+  }
+  
+  .furnished-badge.unfurnished {
+    background-color: #f44336;
+  }
+  
+  .tenant-badge {
+    background-color: #9c27b0;
+    color: white;
+  }
+  
+  /* Style for the Link wrapping the card */
+  .property-card-link {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit text color from parent */
+    display: block; /* Make link take up block space */
+  }
+  
+  /* --- Favorite Button Styles --- */
+  .favorite-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(var(--background-secondary-rgb), 0.8); /* Use RGB var */
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: var(--danger-color); /* Use danger color */
+    font-size: 1.2rem;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    z-index: 2; /* Ensure it's above the image */
+    box-shadow: 0 1px 3px var(--shadow-color);
+  }
+  
+  .favorite-button:hover {
+    background-color: rgba(var(--danger-color-rgb), 0.9); /* Use danger RGB */
+    color: var(--danger-text-color); /* Use variable */
+    transform: scale(1.1);
+  }
+  
+  .favorite-button.favorited {
+      background-color: var(--danger-color); /* Variable */
+      color: var(--danger-text-color); /* Variable */
+  }
+  
+  .favorite-button.favorited:hover {
+      background-color: var(--danger-hover-color); /* Variable */
+  }
+  /* --- End Favorite Button Styles --- */
+  
+  /* --- Comparison Checkbox Styles --- */
+  .compare-checkbox-container {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 3; /* Above favorite button if they overlap */
+      background-color: rgba(var(--background-secondary-rgb), 0.8);
+      border-radius: 4px;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 1px 3px var(--shadow-color);
+  }
+  
+  /* Hide the actual checkbox but keep it accessible */
+  .compare-checkbox {
+      opacity: 0;
+      width: 0;
+      height: 0;
+      position: absolute;
+  }
+  
+  .compare-checkbox-label {
+      cursor: pointer;
+      width: 20px; /* Size of the clickable area */
+      height: 20px;
+      background-color: var(--background-primary); /* Background of the box */
+      border: 1px solid var(--border-secondary);
+      border-radius: 3px;
+      display: inline-block;
+      position: relative;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+  
+  /* Style the checkmark using ::after pseudo-element */
+  .compare-checkbox-label::after {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: 2px;
+      width: 5px;
+      height: 10px;
+      border: solid var(--button-primary-text); /* Checkmark color (ensure contrast) */
+      border-width: 0 3px 3px 0;
+      transform: rotate(45deg);
+      opacity: 0; /* Hidden by default */
+      transition: opacity 0.2s ease;
+  }
+  
+  /* Show checkmark when checkbox is checked */
+  .compare-checkbox:checked + .compare-checkbox-label::after {
+      opacity: 1;
+  }
+  
+  /* Change background when checked */
+  .compare-checkbox:checked + .compare-checkbox-label {
+      background-color: var(--button-primary-bg); /* Use primary color */
+      border-color: var(--button-primary-hover-bg);
+  }
+  
+  .compare-checkbox:focus + .compare-checkbox-label {
+       outline: 2px solid var(--text-accent);
+       outline-offset: 1px;
+  }
+  /* --- End Comparison Checkbox Styles --- */

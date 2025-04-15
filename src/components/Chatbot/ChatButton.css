@@ -1,0 +1,24 @@
+/* src/components/Chatbot/ChatButton.css */
+.chat-button {
+    background-color: var(--button-primary-bg); /* Variable */
+    color: var(--button-primary-text); /* Variable */
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 1.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px var(--shadow-color); /* Variable */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .chat-button:hover {
+    background-color: var(--button-primary-hover-bg); /* Variable */
+    transform: scale(1.1);
+  }
+  
+  /* Focus uses global style */
+  /*.chat-button:focus { ... } */
